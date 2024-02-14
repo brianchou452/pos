@@ -11,41 +11,48 @@ struct ContentView: View {
     @State var isOpened = true
 
     @Environment(\.colorScheme) private var colorScheme
+    @EnvironmentObject var authService: AuthService
 
     @State private var selection: MenuItem? = .checkout
     @State var appearance: MenuAppearance = .default
 
     var body: some View {
-        Drawer(
-            isOpened: $isOpened,
-            menu: {
-                MenuView(selection: $selection)
-                    .environment(\.colorScheme, colorScheme.inverted())
-            },
-            content: {
-                switch selection {
-                case .checkout:
-                    CheckoutView(isOpened: $isOpened)
-                case .transactions:
-                    TransactionsView()
-                case .orders:
-                    CheckoutView(isOpened: $isOpened)
-                case .reports:
-                    CheckoutView(isOpened: $isOpened)
-                case .items:
-                    CheckoutView(isOpened: $isOpened)
-                case .customers:
-                    CheckoutView(isOpened: $isOpened)
-                case .settings:
-                    CheckoutView(isOpened: $isOpened)
-                case .logout:
-                    CheckoutView(isOpened: $isOpened)
-                case nil:
-                    CheckoutView(isOpened: $isOpened)
+        if authService.isSignedIn {
+            Drawer(
+                isOpened: $isOpened,
+                menu: {
+                    MenuView(selection: $selection)
+                        .environment(\.colorScheme, colorScheme.inverted())
+                },
+                content: {
+                    switch selection {
+                    case .checkout:
+                        CheckoutView(isOpened: $isOpened)
+                    case .transactions:
+                        TransactionsView()
+                    case .orders:
+                        LoginView()
+                    case .reports:
+                        CheckoutView(isOpened: $isOpened)
+                    case .items:
+                        CheckoutView(isOpened: $isOpened)
+                    case .customers:
+                        CheckoutView(isOpened: $isOpened)
+                    case .settings:
+                        SettingsView(isOpened: $isOpened)
+                            .environmentObject(authService)
+                    case .logout:
+                        CheckoutView(isOpened: $isOpened)
+                    case nil:
+                        CheckoutView(isOpened: $isOpened)
+                    }
                 }
-            }
-        )
-        .statusBarHidden(true)
+            )
+            .statusBarHidden(true)
+        } else {
+            WelcomeView()
+                .environmentObject(authService)
+        }
     }
 }
 

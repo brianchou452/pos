@@ -1,0 +1,124 @@
+{
+  "sourceLanguage" : "zh-Hant",
+  "strings" : {
+    "Hello, World!" : {
+
+    },
+    "Hide" : {
+
+    },
+    "Login.emailField.Title" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "電子郵件"
+          }
+        }
+      }
+    },
+    "Login.LoginWithGoogle" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用 Google 帳號登入"
+          }
+        }
+      }
+    },
+    "Login.PasswordField.Title" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "密碼"
+          }
+        }
+      }
+    },
+    "Login.Title" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登入"
+          }
+        }
+      }
+    },
+    "Login.useEmailAndPassword" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "或是使用電子郵件和密碼登入"
+          }
+        }
+      }
+    },
+    "Open: %lld" : {
+
+    },
+    "Read our Terms & Conditions." : {
+
+    },
+    "Show Bottom Sheet" : {
+
+    },
+    "TransactionsView" : {
+
+    },
+    "welcome.getStarted.signIn" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "登入"
+          }
+        }
+      }
+    },
+    "welcome.getStarted.title" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "讓我們開始吧！"
+          }
+        }
+      }
+    },
+    "You are completely safe." : {
+
+    },
+    "交易紀錄" : {
+
+    },
+    "切換使用者" : {
+
+    },
+    "商品管理" : {
+
+    },
+    "報表" : {
+
+    },
+    "登出" : {
+
+    },
+    "結帳" : {
+
+    },
+    "訂單" : {
+
+    },
+    "設定" : {
+
+    },
+    "顧客管理" : {
+
+    }
+  },
+  "version" : "1.0"
+}
