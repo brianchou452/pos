@@ -14,7 +14,7 @@ class AuthService: ObservableObject {
     @Published var isSignedIn: Bool = false
     
     init() {
-        Auth.auth().useEmulator(withHost:"192.168.1.70", port:9099)
+//        Auth.auth().useEmulator(withHost:"127.0.0.1", port:9099)
         Auth.auth().addStateDidChangeListener { _, user in
             if user != nil {
                 self.isSignedIn = true

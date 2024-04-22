@@ -14,6 +14,12 @@
 		72366EB22B10A5D70060F673 /* posTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72366EB12B10A5D70060F673 /* posTests.swift */; };
 		72366EBC2B10A5D70060F673 /* posUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72366EBB2B10A5D70060F673 /* posUITests.swift */; };
 		72366EBE2B10A5D70060F673 /* posUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72366EBD2B10A5D70060F673 /* posUITestsLaunchTests.swift */; };
+		7252339F2B7CB99E0010C182 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252339E2B7CB99E0010C182 /* Item.swift */; };
+		725233A12B7CBEB80010C182 /* CheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725233A02B7CBEB80010C182 /* CheckoutViewModel.swift */; };
+		725233A32B7CC6DE0010C182 /* _FlexibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725233A22B7CC6DE0010C182 /* _FlexibleView.swift */; };
+		725233A52B7CC7A00010C182 /* View+ReadSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725233A42B7CC7A00010C182 /* View+ReadSize.swift */; };
+		725233A72B7CC98B0010C182 /* FlexibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725233A62B7CC98B0010C182 /* FlexibleView.swift */; };
+		725233A92B7DA50E0010C182 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725233A82B7DA50E0010C182 /* ItemView.swift */; };
 		7280D9042B145FFF00C38D1E /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7280D9032B145FFF00C38D1E /* Drawer.swift */; };
 		7280D9052B145FFF00C38D1E /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7280D9032B145FFF00C38D1E /* Drawer.swift */; };
 		7280D9062B145FFF00C38D1E /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7280D9032B145FFF00C38D1E /* Drawer.swift */; };
@@ -40,8 +46,6 @@
 		729745402B731BAB0068BAFA /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7297453F2B731BAB0068BAFA /* WelcomeView.swift */; };
 		72B598302B6B8DF8001FEEE8 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5982F2B6B8DF8001FEEE8 /* CartView.swift */; };
 		72B598322B6B8E1E001FEEE8 /* ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B598312B6B8E1E001FEEE8 /* ItemsView.swift */; };
-		72B598352B6E84BC001FEEE8 /* DeviceRotationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B598342B6E84BC001FEEE8 /* DeviceRotationViewModifier.swift */; };
-		72B598372B6E8526001FEEE8 /* View+DetectOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B598362B6E8526001FEEE8 /* View+DetectOrientation.swift */; };
 		72B598392B6F54CD001FEEE8 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B598382B6F54CD001FEEE8 /* TabBarView.swift */; };
 		72B5983B2B6F5BEC001FEEE8 /* TabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5983A2B6F5BEC001FEEE8 /* TabBarItemView.swift */; };
 		72B5983E2B7229F2001FEEE8 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5983D2B7229F2001FEEE8 /* LoginView.swift */; };
@@ -87,6 +91,12 @@
 		72366EB72B10A5D70060F673 /* posUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = posUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72366EBB2B10A5D70060F673 /* posUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = posUITests.swift; sourceTree = "<group>"; };
 		72366EBD2B10A5D70060F673 /* posUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = posUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7252339E2B7CB99E0010C182 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		725233A02B7CBEB80010C182 /* CheckoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewModel.swift; sourceTree = "<group>"; };
+		725233A22B7CC6DE0010C182 /* _FlexibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _FlexibleView.swift; sourceTree = "<group>"; };
+		725233A42B7CC7A00010C182 /* View+ReadSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ReadSize.swift"; sourceTree = "<group>"; };
+		725233A62B7CC98B0010C182 /* FlexibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleView.swift; sourceTree = "<group>"; };
+		725233A82B7DA50E0010C182 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		7280D9032B145FFF00C38D1E /* Drawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
 		7280D9072B14606B00C38D1E /* DrawerOpenedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerOpenedKey.swift; sourceTree = "<group>"; };
 		7280D90A2B14773000C38D1E /* UserHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHeader.swift; sourceTree = "<group>"; };
@@ -111,8 +121,6 @@
 		7297453F2B731BAB0068BAFA /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		72B5982F2B6B8DF8001FEEE8 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		72B598312B6B8E1E001FEEE8 /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
-		72B598342B6E84BC001FEEE8 /* DeviceRotationViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRotationViewModifier.swift; sourceTree = "<group>"; };
-		72B598362B6E8526001FEEE8 /* View+DetectOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+DetectOrientation.swift"; sourceTree = "<group>"; };
 		72B598382B6F54CD001FEEE8 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		72B5983A2B6F5BEC001FEEE8 /* TabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemView.swift; sourceTree = "<group>"; };
 		72B5983D2B7229F2001FEEE8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -293,7 +301,6 @@
 			isa = PBXGroup;
 			children = (
 				72D4CD8C2B7B606800AF7CBB /* Utils */,
-				72B598332B6E84A6001FEEE8 /* ViewModifier */,
 				7280D9232B14774D00C38D1E /* Transition */,
 				7280D9252B14774D00C38D1E /* Preferences */,
 				7280D9272B14774D00C38D1E /* Layout */,
@@ -323,6 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				7280D9282B14774D00C38D1E /* Dimension.swift */,
+				725233A62B7CC98B0010C182 /* FlexibleView.swift */,
+				725233A22B7CC6DE0010C182 /* _FlexibleView.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -333,7 +342,7 @@
 				7280D92B2B14774D00C38D1E /* ColorScheme+Toggle.swift */,
 				7280D92E2B14774D00C38D1E /* Label+MenuItem.swift */,
 				7280D92F2B14774D00C38D1E /* Binding+Default.swift */,
-				72B598362B6E8526001FEEE8 /* View+DetectOrientation.swift */,
+				725233A42B7CC7A00010C182 /* View+ReadSize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -350,6 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				7280D93D2B14778200C38D1E /* User.swift */,
+				7252339E2B7CB99E0010C182 /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -360,14 +370,6 @@
 				7297453F2B731BAB0068BAFA /* WelcomeView.swift */,
 			);
 			path = Welcome;
-			sourceTree = "<group>";
-		};
-		72B598332B6E84A6001FEEE8 /* ViewModifier */ = {
-			isa = PBXGroup;
-			children = (
-				72B598342B6E84BC001FEEE8 /* DeviceRotationViewModifier.swift */,
-			);
-			path = ViewModifier;
 			sourceTree = "<group>";
 		};
 		72B5983C2B7229CB001FEEE8 /* Login */ = {
@@ -398,10 +400,12 @@
 			isa = PBXGroup;
 			children = (
 				72E652EA2B17A65200444498 /* CheckoutView.swift */,
+				725233A02B7CBEB80010C182 /* CheckoutViewModel.swift */,
 				72B5982F2B6B8DF8001FEEE8 /* CartView.swift */,
 				72B598312B6B8E1E001FEEE8 /* ItemsView.swift */,
 				72B598382B6F54CD001FEEE8 /* TabBarView.swift */,
 				72B5983A2B6F5BEC001FEEE8 /* TabBarItemView.swift */,
+				725233A82B7DA50E0010C182 /* ItemView.swift */,
 			);
 			path = Checkout;
 			sourceTree = "<group>";
@@ -609,16 +613,20 @@
 				7280D9202B14773000C38D1E /* MenuView.swift in Sources */,
 				7280D9362B14774D00C38D1E /* ColorScheme+Toggle.swift in Sources */,
 				7280D91D2B14773000C38D1E /* MenuItem.swift in Sources */,
-				72B598352B6E84BC001FEEE8 /* DeviceRotationViewModifier.swift in Sources */,
+				725233A32B7CC6DE0010C182 /* _FlexibleView.swift in Sources */,
 				72366E9E2B10A5D50060F673 /* posApp.swift in Sources */,
 				72D4CD8E2B7B608800AF7CBB /* AuthService.swift in Sources */,
+				7252339F2B7CB99E0010C182 /* Item.swift in Sources */,
 				7280D91F2B14773000C38D1E /* MenuItemGeometryPreferenceKey.swift in Sources */,
 				7280D9322B14774D00C38D1E /* MenuBackgroundTransition.swift in Sources */,
 				7280D9392B14774D00C38D1E /* Label+MenuItem.swift in Sources */,
-				72B598372B6E8526001FEEE8 /* View+DetectOrientation.swift in Sources */,
 				72B598392B6F54CD001FEEE8 /* TabBarView.swift in Sources */,
+				725233A72B7CC98B0010C182 /* FlexibleView.swift in Sources */,
+				725233A52B7CC7A00010C182 /* View+ReadSize.swift in Sources */,
 				72B5983E2B7229F2001FEEE8 /* LoginView.swift in Sources */,
 				7280D9172B14773000C38D1E /* UserHeader.swift in Sources */,
+				725233A12B7CBEB80010C182 /* CheckoutViewModel.swift in Sources */,
+				725233A92B7DA50E0010C182 /* ItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -803,7 +811,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
@@ -847,7 +855,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";

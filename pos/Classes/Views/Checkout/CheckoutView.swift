@@ -8,36 +8,38 @@
 import SwiftUI
 
 struct CheckoutView: View {
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
     @Binding var isOpened: Bool
     @State private var isBottomSheetPresented = false
     @State private var showSheet = false
-
-    @State private var orientation = UIDevice.current.orientation
-    let tabbarItems = ["套餐", "主食", "副餐", "飲料", "甜點"]
+    
+    @StateObject var viewModel = CheckoutViewModel()
 
     var body: some View {
-        VStack {
-            if orientation.isLandscape {
-                HStack {
-                    ItemsView()
-                    CartView()
+        if horizontalSizeClass == .compact && verticalSizeClass == .regular { // iPhone 垂直的大小
+            VStack {
+                ItemsView()
+                    .environmentObject(viewModel)
+                
+                Button("Show Bottom Sheet") {
+                    showSheet.toggle()
                 }
-            } else {
-                VStack {
-                    ItemsView()
-
-                    Button("Show Bottom Sheet") {
-                        showSheet.toggle()
-                    }
-                    .tint(.black)
-                    .buttonStyle(.borderedProminent)
-                    .sheet(isPresented: $showSheet) {
-                        CartView()
-                            .presentationDetents([.medium, .large])
-                    }
+                .tint(.black)
+                .buttonStyle(.borderedProminent)
+                .sheet(isPresented: $showSheet) {
+                    CartView()
+                        .presentationDetents([.medium, .large])
                 }
             }
-        }.detectOrientation($orientation)
+        } else {
+            HStack {
+                ItemsView()
+                    .environmentObject(viewModel)
+                CartView()
+            }
+        }
     }
 }
 

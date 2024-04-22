@@ -48,7 +48,6 @@ struct ContentView: View {
                     }
                 }
             )
-            .statusBarHidden(true)
         } else {
             WelcomeView()
                 .environmentObject(authService)

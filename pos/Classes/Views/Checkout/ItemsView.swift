@@ -9,24 +9,28 @@ import SwiftUI
 
 struct ItemsView: View {
     @State var selectedIndex = 0
-    
-    let colors: [Color] = [.yellow, .blue, .green, .indigo, .brown]
-    let tabbarItems = ["套餐", "主食", "副餐", "飲料", "甜點"]
-    
+    @EnvironmentObject var viewModel: CheckoutViewModel
+
     var body: some View {
         ZStack(alignment: .top) {
             TabView(selection: $selectedIndex) {
-                ForEach(colors.indices, id: \.self) { index in
-                    colors[index]
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .tag(index)
-                        .ignoresSafeArea()
+                ForEach(viewModel.category.indices, id: \.self) { index in
+                    ScrollView(.vertical) {
+                        Spacer(minLength: 80)
+                        FlexibleView(
+                            data: viewModel.originalItems[index],
+                            spacing: viewModel.spacing,
+                            alignment: viewModel.alignment
+                        ) { item in
+                            ItemView(image: Image("checkout/food"), text: item)
+                        }
+                        .padding(.horizontal, viewModel.padding)
+                    }
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .ignoresSafeArea()
-            
-            TabBarView(tabbarItems: tabbarItems, selectedIndex: $selectedIndex)
+
+            TabBarView(tabbarItems: viewModel.category, selectedIndex: $selectedIndex)
                 .padding(.horizontal)
         }
     }
@@ -34,8 +38,7 @@ struct ItemsView: View {
 
 struct ItemsView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-        
-        TabBarView(tabbarItems: ["套餐", "主食", "副餐", "飲料", "甜點"], selectedIndex: .constant(0)).previewDisplayName("TabBarView")
+        ItemsView()
+            .environmentObject(CheckoutViewModel())
     }
 }
