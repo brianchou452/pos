@@ -11,7 +11,7 @@ struct CheckoutView: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
-    @Binding var isOpened: Bool
+    @Binding var isNavagationBarOpened: Bool
     @State private var isBottomSheetPresented = false
     @State private var showSheet = false
     
@@ -20,7 +20,7 @@ struct CheckoutView: View {
     var body: some View {
         if horizontalSizeClass == .compact && verticalSizeClass == .regular { // iPhone 垂直的大小
             VStack {
-                ItemsView()
+                ItemsView(isNavagationBarOpened: $isNavagationBarOpened)
                     .environmentObject(viewModel)
                 
                 Button("Show Bottom Sheet") {
@@ -35,7 +35,7 @@ struct CheckoutView: View {
             }
         } else {
             HStack {
-                ItemsView()
+                ItemsView(isNavagationBarOpened: $isNavagationBarOpened)
                     .environmentObject(viewModel)
                 CartView()
             }
@@ -44,5 +44,5 @@ struct CheckoutView: View {
 }
 
 #Preview {
-    CheckoutView(isOpened: .constant(true))
+    CheckoutView(isNavagationBarOpened: .constant(true))
 }

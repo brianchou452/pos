@@ -27,24 +27,24 @@ struct ContentView: View {
                 content: {
                     switch selection {
                     case .checkout:
-                        CheckoutView(isOpened: $isOpened)
+                        CheckoutView(isNavagationBarOpened: $isOpened)
                     case .transactions:
                         TransactionsView()
                     case .orders:
                         LoginView()
                     case .reports:
-                        CheckoutView(isOpened: $isOpened)
+                        CheckoutView(isNavagationBarOpened: $isOpened)
                     case .items:
-                        CheckoutView(isOpened: $isOpened)
+                        CheckoutView(isNavagationBarOpened: $isOpened)
                     case .customers:
-                        CheckoutView(isOpened: $isOpened)
+                        CheckoutView(isNavagationBarOpened: $isOpened)
                     case .settings:
                         SettingsView(isOpened: $isOpened)
                             .environmentObject(authService)
                     case .logout:
-                        CheckoutView(isOpened: $isOpened)
+                        CheckoutView(isNavagationBarOpened: $isOpened)
                     case nil:
-                        CheckoutView(isOpened: $isOpened)
+                        CheckoutView(isNavagationBarOpened: $isOpened)
                     }
                 }
             )

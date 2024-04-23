@@ -10,6 +10,7 @@ import SwiftUI
 struct ItemsView: View {
     @State var selectedIndex = 0
     @EnvironmentObject var viewModel: CheckoutViewModel
+    @Binding var isNavagationBarOpened: Bool
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -30,7 +31,7 @@ struct ItemsView: View {
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
 
-            TabBarView(tabbarItems: viewModel.category, selectedIndex: $selectedIndex)
+            TabBarView(tabbarItems: viewModel.category,isNavagationBarOpened: $isNavagationBarOpened ,selectedIndex: $selectedIndex)
                 .padding(.horizontal)
         }
     }
@@ -38,7 +39,7 @@ struct ItemsView: View {
 
 struct ItemsView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemsView()
+        ItemsView(isNavagationBarOpened: .constant(false))
             .environmentObject(CheckoutViewModel())
     }
 }
