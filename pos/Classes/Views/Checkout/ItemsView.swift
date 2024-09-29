@@ -23,7 +23,7 @@ struct ItemsView: View {
                             spacing: viewModel.spacing,
                             alignment: viewModel.alignment
                         ) { item in
-                            ItemView(image: Image("checkout/food"), text: item)
+                            ProductItemView(image: Image("checkout/food"), text: item)
                         }
                         .padding(.horizontal, viewModel.padding)
                     }

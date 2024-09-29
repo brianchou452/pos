@@ -24,7 +24,7 @@ struct MenuView: View {
     // MARK: - Body
     var body: some View {
         VStack {
-            MenuItemList(selection: $selection) {
+            MenuItemList(selection: $selection, user: AuthService.shared.user) {
                 withAnimation {
                     appearance.toggle()
                 }

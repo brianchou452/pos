@@ -17,7 +17,7 @@ struct ContentView: View {
     @State var appearance: MenuAppearance = .default
 
     var body: some View {
-        if authService.isSignedIn {
+        if authService.status == .login {
             Drawer(
                 isOpened: $isOpened,
                 menu: {
@@ -35,7 +35,7 @@ struct ContentView: View {
                     case .reports:
                         CheckoutView(isNavagationBarOpened: $isOpened)
                     case .items:
-                        CheckoutView(isNavagationBarOpened: $isOpened)
+                        ItemsManageView(isNavagationBarOpened: $isOpened)
                     case .customers:
                         CheckoutView(isNavagationBarOpened: $isOpened)
                     case .settings:
@@ -48,9 +48,11 @@ struct ContentView: View {
                     }
                 }
             )
-        } else {
+        } else if authService.status == .logout {
             WelcomeView()
                 .environmentObject(authService)
+        } else if authService.status == .notDetermined {
+            Text("Loading...")
         }
     }
 }

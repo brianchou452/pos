@@ -30,7 +30,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct posApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject var authService = AuthService()
+    @StateObject var authService = AuthService.shared
 
     var body: some Scene {
         WindowGroup {

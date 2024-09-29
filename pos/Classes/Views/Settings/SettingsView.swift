@@ -12,16 +12,33 @@ struct SettingsView: View {
     @EnvironmentObject var authService: AuthService
 
     var body: some View {
-        Button {
-            authService.signOut(completion: { result in
-                if result != nil {
-                    print(result ?? "")
-                } else {
-                    print("成功登出")
+        VStack {
+            Button {
+                authService.signOut(completion: { result in
+                    if result != nil {
+                        print(result ?? "")
+                    } else {
+                        print("成功登出")
+                    }
+                })
+            } label: {
+                Text("登出")
+            }
+
+            Button {
+                let store = Store(name: "真好吃")
+                let db = DBService.shared
+                do {
+                    let docID = try db.add(store: store)
+                    UserDefaults.storeID = docID
+                    print("add store: doc ID \(docID)")
+                } catch {
+                    print(error.localizedDescription)
                 }
-            })
-        } label: {
-            Text("登出")
+            }
+            label: {
+                Text("新增商家")
+            }
         }
     }
 }

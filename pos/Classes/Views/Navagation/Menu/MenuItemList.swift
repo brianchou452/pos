@@ -19,7 +19,7 @@ struct MenuItemList: View {
 
     // MARK: - Init
 
-    init(items: [MenuItem] = MenuItem.allCases, selection: Binding<MenuItem?>, user: User = .stub, onUserSelected: (() -> Void)? = nil) {
+    init(items: [MenuItem] = MenuItem.allCases, selection: Binding<MenuItem?>, user: User, onUserSelected: (() -> Void)? = nil) {
         self.items = items
         self.user = user
         _selection = selection
@@ -101,7 +101,7 @@ struct MenuItemList_Previews: PreviewProvider {
         @State var appearance: MenuAppearance = .default
 
         var body: some View {
-            MenuItemList(selection: $selection) {
+            MenuItemList(selection: $selection, user: .stub) {
                 withAnimation(.spring()) {
                     appearance.toggle()
                 }

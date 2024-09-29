@@ -1,5 +1,5 @@
 //
-//  ItemView.swift
+//  ProductItemView.swift
 //  pos
 //
 //  Created by Brian Chou on 2024/2/15.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemView: View {
+struct ProductItemView: View {
     var image: Image
     var text: String
     var body: some View {
@@ -32,5 +32,5 @@ struct ItemView: View {
 }
 
 #Preview {
-    ItemView(image: Image("checkout/food"), text: "Food")
+    ProductItemView(image: Image("checkout/food"), text: "Food")
 }

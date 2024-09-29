@@ -11,17 +11,27 @@ import Foundation
 import GoogleSignIn
 
 class AuthService: ObservableObject {
-    @Published var isSignedIn: Bool = false
+    static let shared = AuthService()
+    @Published var status: AuthStatus = .notDetermined
+    @Published var user: User = .init()
     
     init() {
-//        Auth.auth().useEmulator(withHost:"127.0.0.1", port:9099)
+//        Auth.auth().useEmulator(withHost: "192.168.1.163", port: 9099)
         Auth.auth().addStateDidChangeListener { _, user in
             if user != nil {
-                self.isSignedIn = true
+                self.status = .login
+                self.user = User(
+                    userID: user?.uid ?? "fakeUserID",
+                    email: user?.email ?? "fake@seaotter.cc",
+                    name: user?.displayName ?? "使用者名稱為空",
+                    profileImageUrl: user?.photoURL,
+                    position: "老闆",
+                    imageName: "person.circle"
+                )
                 print("Auth state changed, is signed in")
                 print(user ?? "")
             } else {
-                self.isSignedIn = false
+                self.status = .logout
                 print("Auth state changed, is signed out")
             }
         }
@@ -61,8 +71,7 @@ class AuthService: ObservableObject {
         GIDSignIn.sharedInstance.configuration = config
         
         // Start the sign in flow!
-        // TODO: fix 'windows' was deprecated in iOS 15.0: Use UIWindowScene.windows on a relevant window scene instead
-        guard let rootViewController = UIApplication.shared.windows.first?.rootViewController else {
+        guard let rootViewController = UIApplication.shared.connectedScenes.compactMap({ ($0 as? UIWindowScene)?.keyWindow }).last?.rootViewController else {
             print("There is no root view controller!")
             return
         }
@@ -92,5 +101,11 @@ class AuthService: ObservableObject {
                 // At this point, our user is signed in
             }
         }
+    }
+    
+    enum AuthStatus {
+        case login
+        case logout
+        case notDetermined
     }
 }
