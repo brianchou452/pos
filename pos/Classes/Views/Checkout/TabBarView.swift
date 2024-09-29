@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TabBarView: View {
-    var tabbarItems: [String]
+    var tabbarItems: [Category]
 
     @Binding var isNavagationBarOpened: Bool
     @Binding var selectedIndex: Int
@@ -29,7 +29,7 @@ struct TabBarView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(tabbarItems.indices, id: \.self) { index in
-                            TabBarItemView(name: tabbarItems[index], isActive: selectedIndex == index, namespace: menuItemTransition)
+                            TabBarItemView(name: tabbarItems[index].name, isActive: selectedIndex == index, namespace: menuItemTransition)
                                 .onTapGesture {
                                     withAnimation(.easeInOut) {
                                         selectedIndex = index
@@ -52,5 +52,5 @@ struct TabBarView: View {
 }
 
 #Preview {
-    TabBarView(tabbarItems: ["套餐", "主食", "副餐", "飲料", "甜點"], isNavagationBarOpened: .constant(false), selectedIndex: .constant(0))
+    TabBarView(tabbarItems: [.init(name: "套餐"), .init(name: "主食"), .init(name: "副餐"), .init(name: "飲料"), .init(name: "甜點")], isNavagationBarOpened: .constant(false), selectedIndex: .constant(0))
 }

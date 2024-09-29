@@ -15,15 +15,17 @@ struct ItemsView: View {
     var body: some View {
         ZStack(alignment: .top) {
             TabView(selection: $selectedIndex) {
-                ForEach(viewModel.category.indices, id: \.self) { index in
+                ForEach(viewModel.categorise.indices, id: \.self) { index in
                     ScrollView(.vertical) {
                         Spacer(minLength: 80)
                         FlexibleView(
-                            data: viewModel.originalItems[index],
+                            data: viewModel.items.filter { item in
+                                item.categoryID == viewModel.categorise[index].id
+                            },
                             spacing: viewModel.spacing,
                             alignment: viewModel.alignment
                         ) { item in
-                            ProductItemView(image: Image("checkout/food"), text: item)
+                            ProductItemView(image: Image("checkout/food"), text: item.name)
                         }
                         .padding(.horizontal, viewModel.padding)
                     }
@@ -31,7 +33,7 @@ struct ItemsView: View {
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
 
-            TabBarView(tabbarItems: viewModel.category,isNavagationBarOpened: $isNavagationBarOpened ,selectedIndex: $selectedIndex)
+            TabBarView(tabbarItems: viewModel.categorise, isNavagationBarOpened: $isNavagationBarOpened, selectedIndex: $selectedIndex)
                 .padding(.horizontal)
         }
     }

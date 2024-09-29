@@ -8,7 +8,7 @@
 import FirebaseFirestore
 import Foundation
 
-public struct Item: Codable, Identifiable {
+public struct Item: Codable, Identifiable, Hashable {
     @DocumentID public var id: String?
     let name: String
     let price: Double
