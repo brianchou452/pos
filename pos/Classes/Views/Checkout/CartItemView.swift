@@ -20,21 +20,15 @@ struct CartItemView: View {
                 Text("\(item.quantity) x \(item.price.formatted(.currency(code: "TWD")))")
                     .font(.subheadline)
             }
+
             Spacer()
 
-            if item.quantity > 1 {
-                Button(action: {
-                    onRemove(item)
-                }) {
-                    Image(systemName: "minus")
-                }
-            }
-
-            Button(action: {
+            Stepper {} onIncrement: {
                 onAdd(item)
-            }) {
-                Image(systemName: "plus")
+            } onDecrement: {
+                onRemove(item)
             }
+            .padding(5)
         }
     }
 }

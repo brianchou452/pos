@@ -20,15 +20,41 @@ struct CartView: View {
                                  }, onAdd: { item in
                                      viewModel.addItemToCart(item: item)
                                  })
+                                 .swipeActions(content: {
+                                     Button(action: {
+                                         viewModel.removeItemFromCart(item: item, clearAll: true)
+                                     }) {
+                                         Image(systemName: "trash.fill")
+                                             .foregroundColor(.white)
+                                     }
+                                     .tint(Color.red)
+                                 })
                 }
             }
-            .background(Color.clear)
+            .background(Color(.systemBackground))
 
-            Button("Checkout") {
-                viewModel.shoppingCart.removeAll()
+            VStack {
+                HStack {
+                    Text("Total")
+                        .font(.title)
+                    Spacer()
+                    Text(viewModel.calculateTotal().formatted(.currency(code: "TWD")))
+                        .font(.title2)
+                }
+                .padding()
+
+                Button {
+                    viewModel.shoppingCart.removeAll()
+                } label: {
+                    Text("Checkout")
+                        .fontWeight(.semibold)
+                        .font(.title)
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color("color/primary"))
+                }
             }
-            .buttonStyle(.bordered)
-            .padding()
             .alignmentGuide(.bottom) { $0[.bottom] - 100 }
         }
         .frame(maxWidth: 350)

@@ -10,7 +10,7 @@ import SwiftUI
 
 class CheckoutViewModel: ObservableObject {
     @Published var spacing: CGFloat = 8
-    @Published var padding: CGFloat = 8
+    @Published var padding: CGFloat = 24
     @Published var wordCount: Int = 75
     @Published var alignmentIndex = 0
     
@@ -94,5 +94,19 @@ class CheckoutViewModel: ObservableObject {
                 shoppingCart.remove(at: index)
             }
         }
+    }
+    
+    func removeItemFromCart(item: CartItem, clearAll: Bool) {
+        if clearAll {
+            if let index = shoppingCart.firstIndex(where: { $0.id == item.id }) {
+                shoppingCart.remove(at: index)
+            }
+        } else {
+            removeItemFromCart(item: item)
+        }
+    }
+    
+    func calculateTotal() -> Double {
+        shoppingCart.reduce(0) { $0 + $1.price * Double($1.quantity) }
     }
 }
