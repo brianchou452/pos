@@ -10,11 +10,11 @@ import SwiftUI
 struct CheckoutView: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    
+
     @Binding var isNavagationBarOpened: Bool
     @State private var isBottomSheetPresented = false
     @State private var showSheet = false
-    
+
     @StateObject var viewModel = CheckoutViewModel()
 
     var body: some View {
@@ -22,7 +22,7 @@ struct CheckoutView: View {
             VStack {
                 ItemsView(isNavagationBarOpened: $isNavagationBarOpened)
                     .environmentObject(viewModel)
-                
+
                 Button("Show Bottom Sheet") {
                     showSheet.toggle()
                 }
@@ -31,6 +31,8 @@ struct CheckoutView: View {
                 .sheet(isPresented: $showSheet) {
                     CartView()
                         .presentationDetents([.medium, .large])
+                        .environmentObject(viewModel)
+                        .frame(maxWidth: 350)
                 }
             }
         } else {
@@ -38,6 +40,7 @@ struct CheckoutView: View {
                 ItemsView(isNavagationBarOpened: $isNavagationBarOpened)
                     .environmentObject(viewModel)
                 CartView()
+                    .environmentObject(viewModel)
             }
         }
     }

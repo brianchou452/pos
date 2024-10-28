@@ -8,14 +8,34 @@
 import SwiftUI
 
 struct CartView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .background(.red)
-            .frame(width: 200)
+    @EnvironmentObject var viewModel: CheckoutViewModel
 
+    var body: some View {
+        VStack(alignment: .center) {
+            List {
+                ForEach(viewModel.shoppingCart) { item in
+                    CartItemView(item: item,
+                                 onRemove: { item in
+                                     viewModel.removeItemFromCart(item: item)
+                                 }, onAdd: { item in
+                                     viewModel.addItemToCart(item: item)
+                                 })
+                }
+            }
+            .background(Color.clear)
+
+            Button("Checkout") {
+                viewModel.shoppingCart.removeAll()
+            }
+            .buttonStyle(.bordered)
+            .padding()
+            .alignmentGuide(.bottom) { $0[.bottom] - 100 }
+        }
+        .frame(maxWidth: 350)
     }
 }
 
 #Preview {
     CartView()
+        .environmentObject(CheckoutViewModel())
 }

@@ -23,6 +23,7 @@ class CheckoutViewModel: ObservableObject {
     private let db = DBService.shared
     @Published var items: [Item] = []
     @Published var categorise: [Category] = []
+    @Published var shoppingCart: [CartItem] = []
     
     init() {
         Task {
@@ -72,6 +73,26 @@ class CheckoutViewModel: ObservableObject {
                 }
         } catch {
             print(error)
+        }
+    }
+    
+    func addItemToCart(item: CartItem) {
+        if let index = shoppingCart.firstIndex(where: { $0.id == item.id }) {
+            shoppingCart[index].quantity += 1
+            print("Item added to cart 1")
+        } else {
+            shoppingCart.append(item)
+            print("Item added to cart 2")
+        }
+    }
+    
+    func removeItemFromCart(item: CartItem) {
+        if let index = shoppingCart.firstIndex(where: { $0.id == item.id }) {
+            if shoppingCart[index].quantity > 1 {
+                shoppingCart[index].quantity -= 1
+            } else {
+                shoppingCart.remove(at: index)
+            }
         }
     }
 }

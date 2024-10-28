@@ -7,10 +7,20 @@
     "%@" : {
 
     },
-    "Details of %@" : {
+    "%lld x %@" : {
+      "localizations" : {
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld x %2$@"
+          }
+        }
+      }
+    },
+    "Checkout" : {
 
     },
-    "Hello, World!" : {
+    "Details of %@" : {
 
     },
     "Loading..." : {
