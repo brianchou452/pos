@@ -109,4 +109,20 @@ class CheckoutViewModel: ObservableObject {
     func calculateTotal() -> Double {
         shoppingCart.reduce(0) { $0 + $1.price * Double($1.quantity) }
     }
+    
+    private func addTransaction(transaction: Transaction) {
+        Task {
+            do {
+                _ = try db.add(transaction: transaction)
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    func checkout() {
+        let transaction = Transaction(user: AuthService.shared.user, items: shoppingCart, total: calculateTotal())
+        addTransaction(transaction: transaction)
+        shoppingCart.removeAll()
+    }
 }

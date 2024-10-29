@@ -44,7 +44,7 @@ struct CartView: View {
                 .padding()
 
                 Button {
-                    viewModel.shoppingCart.removeAll()
+                    viewModel.checkout()
                 } label: {
                     Text("Checkout")
                         .fontWeight(.semibold)
