@@ -29,7 +29,7 @@ struct ContentView: View {
                     case .checkout:
                         CheckoutView(isNavagationBarOpened: $isOpened)
                     case .transactions:
-                        TransactionsView()
+                        TransactionsView(isNavagationBarOpened: $isOpened)
                     case .orders:
                         LoginView()
                     case .reports:

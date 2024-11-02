@@ -73,6 +73,14 @@ class DBService: ObservableObject {
         return db.collection(Collections.stores).document(storeID)
             .collection(Collections.categorise)
     }
+    
+    func getTransactionListQuery(limit: Int) throws -> Query {
+        guard let storeID = UserDefaults.storeID else { throw DBServiceError.storeIdNotFound }
+        return db.collection(Collections.stores).document(storeID)
+            .collection(Collections.transactions)
+            .order(by: "createdAt", descending: true)
+            .limit(to: limit)
+    }
 }
 
 enum Collections {

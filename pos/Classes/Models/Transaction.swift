@@ -8,7 +8,7 @@
 import FirebaseFirestore
 import Foundation
 
-struct Transaction: Codable {
+struct Transaction: Codable, Identifiable {
     @DocumentID public var id: String?
     let user: User
     let items: [CartItem]
