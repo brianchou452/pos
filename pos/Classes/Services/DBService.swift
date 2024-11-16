@@ -43,7 +43,7 @@ class DBService: ObservableObject {
     func add(category: Category) throws -> String {
         guard let storeID = UserDefaults.storeID else { throw DBServiceError.storeIdNotFound }
         let ref = try db.collection(Collections.stores).document(storeID)
-            .collection(Collections.categorise).addDocument(from: category)
+            .collection(Collections.categories).addDocument(from: category)
         return ref.documentID
     }
 
@@ -68,12 +68,12 @@ class DBService: ObservableObject {
             .collection(Collections.menus)
     }
 
-    func getCategoriseQuery() throws -> Query {
+    func getCategoriesQuery() throws -> Query {
         guard let storeID = UserDefaults.storeID else { throw DBServiceError.storeIdNotFound }
         return db.collection(Collections.stores).document(storeID)
-            .collection(Collections.categorise)
+            .collection(Collections.categories)
     }
-    
+
     func getTransactionListQuery(limit: Int) throws -> Query {
         guard let storeID = UserDefaults.storeID else { throw DBServiceError.storeIdNotFound }
         return db.collection(Collections.stores).document(storeID)
@@ -87,7 +87,7 @@ enum Collections {
     static let users = "users"
     static let stores = "stores"
     static let menus = "menus"
-    static let categorise = "categorise"
+    static let categories = "categories"
     static let transactions = "transactions"
 }
 

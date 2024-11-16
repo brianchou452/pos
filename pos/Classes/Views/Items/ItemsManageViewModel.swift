@@ -10,12 +10,12 @@ import Foundation
 class ItemsManageViewModel: ObservableObject {
     private let db = DBService.shared
     @Published var items: [Item] = []
-    @Published var categorise: [Category] = []
+    @Published var categories: [Category] = []
 
     init() {
         Task {
             await getItems()
-            await getCategorise()
+            await getCategories()
         }
     }
 
@@ -39,9 +39,9 @@ class ItemsManageViewModel: ObservableObject {
         }
     }
 
-    private func getCategorise() async {
+    private func getCategories() async {
         do {
-            try db.getCategoriseQuery()
+            try db.getCategoriesQuery()
                 .addSnapshotListener { [weak self] querySnapshot, error in
                     guard let documents = querySnapshot?.documents,
                           let self = self
@@ -50,7 +50,7 @@ class ItemsManageViewModel: ObservableObject {
                         return
                     }
                     do {
-                        self.categorise = try documents.compactMap { try $0.data(as: Category.self) }
+                        self.categories = try documents.compactMap { try $0.data(as: Category.self) }
                     } catch {
                         print(error.localizedDescription)
                         // TODO: error handle

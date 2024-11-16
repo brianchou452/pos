@@ -12,11 +12,11 @@ struct ItemManageListView: View {
     @State private var showingSheet = false
 
     var body: some View {
-        if viewModel.categorise.isEmpty {
+        if viewModel.categories.isEmpty {
             Text("請先新增一個類別")
         }
         List {
-            ForEach(viewModel.categorise) { category in
+            ForEach(viewModel.categories) { category in
                 Section(header: Text(category.name)) {
                     ForEach(viewModel.items.filter { item in
                         item.categoryID == category.id

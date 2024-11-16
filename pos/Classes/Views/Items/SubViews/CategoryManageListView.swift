@@ -13,7 +13,7 @@ struct CategoryManageListView: View {
     
     var body: some View {
         List {
-            ForEach(viewModel.categorise) { category in
+            ForEach(viewModel.categories) { category in
                 Text(category.name)
             }
         }

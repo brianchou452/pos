@@ -27,7 +27,7 @@ struct AddItemSheetView: View {
                     }
                     Picker("商品類別", selection: $category) {
                         Text("請選擇類別").tag(Category?(nil))
-                        ForEach(viewModel.categorise) { category in
+                        ForEach(viewModel.categories) { category in
                             Text(category.name).tag(category)
                         }
                     }
