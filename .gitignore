@@ -66,3 +66,4 @@ node_modules/
 .env
 
 pos/GoogleService-Info.plist
+pos/Config.xcconfig

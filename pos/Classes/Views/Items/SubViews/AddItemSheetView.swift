@@ -5,6 +5,7 @@
 //  Created by Brian Chou on 2024/9/19.
 //
 
+import PhotosUI
 import SwiftUI
 
 struct AddItemSheetView: View {
@@ -18,7 +19,11 @@ struct AddItemSheetView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section {
+                Section(header: Text("商品圖片")) {
+                    EditableRoundedProductImage(viewModel: viewModel)
+                }
+
+                Section(header: Text("商品資訊")) {
                     LabeledContent {
                         TextField("", text: $name)
                             .multilineTextAlignment(.trailing)
@@ -43,7 +48,7 @@ struct AddItemSheetView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar(content: {
+            .toolbar {
                 ToolbarItem(placement: .topBarLeading, content: {
                     Button("取消") {
                         dismiss()
@@ -52,12 +57,12 @@ struct AddItemSheetView: View {
                 ToolbarItem(placement: .topBarTrailing, content: {
                     Button("儲存") {
                         let price = Double(price) ?? 0
-                        let item = Item(name: name, price: price, imageUrl: "", categoryID: category?.id ?? "")
+                        let item = Item(name: name, price: price, imageKey: "", imageUrl: "", categoryID: category?.id ?? "")
                         viewModel.addItem(item: item)
                         dismiss()
                     }
                 })
-            })
+            }
         }
     }
 }

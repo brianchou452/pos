@@ -12,6 +12,7 @@ public struct Item: Codable, Identifiable, Hashable {
     @DocumentID public var id: String?
     let name: String
     let price: Double
-    let imageUrl: String
+    var imageKey: String
+    var imageUrl: String
     let categoryID: String
 }

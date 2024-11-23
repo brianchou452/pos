@@ -5,19 +5,31 @@
 //  Created by Brian Chou on 2024/2/15.
 //
 
+import Kingfisher
 import SwiftUI
 
 struct ProductItemView: View {
-    var image: Image
+    var imageUrl: String
     var text: String
     var body: some View {
         ZStack {
-            Image("checkout/food")
-                .resizable()
-                .scaledToFit()
+            if imageUrl.isEmpty {
+                Image("checkout/food")
+                    .resizable()
+                    .scaledToFit()
+            } else {
+                KFImage.url(URL(string: imageUrl))
+                    .placeholder {
+                        ProgressView()
+                    }
+                    .fade(duration: 0.25)
+                    .resizable()
+                    .scaledToFill()
+            }
+
             VStack(alignment: .leading) {
                 Spacer()
-                Text(text)
+                Text(text).background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8, style: .circular))
             }
             .padding(5)
         }
@@ -32,5 +44,5 @@ struct ProductItemView: View {
 }
 
 #Preview {
-    ProductItemView(image: Image("checkout/food"), text: "Food")
+    ProductItemView(imageUrl: "", text: "Food")
 }

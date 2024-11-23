@@ -25,7 +25,7 @@ struct ItemsView: View {
                             spacing: viewModel.spacing,
                             alignment: viewModel.alignment
                         ) { item in
-                            ProductItemView(image: Image("checkout/food"), text: item.name)
+                            ProductItemView(imageUrl: item.imageUrl, text: item.name)
                                 .onTapGesture(perform: {
                                     print("tapped \(item.name)")
                                     viewModel.addItemToCart(item: CartItem(item: item))
