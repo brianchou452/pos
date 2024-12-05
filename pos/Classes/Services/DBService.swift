@@ -13,14 +13,19 @@ class DBService: ObservableObject {
     private let db = Firestore.firestore()
     private let authService = AuthService.shared
     static let shared = DBService()
+    var newOrder: Order?
 
-//    init() {
-//        let settings = Firestore.firestore().settings
-//        settings.host = "192.168.1.163:8080"
-//        settings.cacheSettings = MemoryCacheSettings()
-//        settings.isSSLEnabled = false
-//        Firestore.firestore().settings = settings
-//    }
+    init() {
+        #if DEBUG
+        let settings = Firestore.firestore().settings
+        settings.host = "192.168.1.102:8081"
+        settings.cacheSettings = MemoryCacheSettings()
+        settings.isSSLEnabled = false
+        Firestore.firestore().settings = settings
+        UserDefaults.storeID = "5wQJz1ELjMqVZwzEqgpx"
+        #endif
+        try? getOrders()
+    }
 
     func save(user: User, uid: String?) {
         guard let uid = uid else { return }
@@ -81,12 +86,51 @@ class DBService: ObservableObject {
             .order(by: "createdAt", descending: true)
             .limit(to: limit)
     }
+
+    func getOrderListQuery(limit: Int) throws -> Query {
+        guard let storeID = UserDefaults.storeID else { throw DBServiceError.storeIdNotFound }
+        return db.collection(Collections.stores).document(storeID)
+            .collection(Collections.orders)
+            .order(by: "createdAt", descending: true)
+            .limit(to: limit)
+    }
+
+    func getOrders() throws {
+        guard let storeID = UserDefaults.storeID else { throw DBServiceError.storeIdNotFound }
+        db.collection(Collections.stores).document(storeID)
+            .collection(Collections.orders)
+            .order(by: "createdAt", descending: true)
+            .limit(to: 1)
+            .addSnapshotListener { [weak self] querySnapshot, _ in
+                guard let documents = querySnapshot?.documents,
+                      let self = self
+                else {
+                    print("getOrders() Error fetching documents")
+                    return
+                }
+                do {
+                    let newOrders = try documents.compactMap { try $0.data(as: Order.self) }
+                    if newOrders.count > 0 {
+                        guard let order = newOrders.first else { return }
+                        if self.newOrder != nil {
+                            NotificationService.shared.sendNewOrderNotification(order: order)
+                        }
+                        self.newOrder = order
+                    }
+                } catch {
+                    print("getOrders() \(error.localizedDescription)")
+                    print("getOrders() \(dump(error))")
+                    return
+                }
+            }
+    }
 }
 
 enum Collections {
     static let users = "users"
     static let stores = "stores"
     static let menus = "menus"
+    static let orders = "orders"
     static let categories = "categories"
     static let transactions = "transactions"
 }

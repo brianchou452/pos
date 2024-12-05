@@ -13,7 +13,7 @@ struct ContentView: View {
     @Environment(\.colorScheme) private var colorScheme
     @EnvironmentObject var authService: AuthService
 
-    @State private var selection: MenuItem? = .checkout
+    @Binding var selection: MenuItem?
     @State var appearance: MenuAppearance = .default
 
     var body: some View {
@@ -30,8 +30,8 @@ struct ContentView: View {
                         CheckoutView(isNavagationBarOpened: $isOpened)
                     case .transactions:
                         TransactionsView(isNavagationBarOpened: $isOpened)
-                    case .orders:
-                        LoginView()
+                    case .orders(let orderId):
+                        OrderView(orderId: orderId, isNavagationBarOpened: $isOpened)
                     case .reports:
                         CheckoutView(isNavagationBarOpened: $isOpened)
                     case .items:
@@ -59,6 +59,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(selection: .constant(.checkout))
     }
 }

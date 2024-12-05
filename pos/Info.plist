@@ -12,6 +12,14 @@
 				<string>com.googleusercontent.apps.250070852575-arvq4a7epipk2fp3f0shb7cqvsn8hkfv</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>cc.seaotter.pos</string>
+			</array>
+		</dict>
 		<dict/>
 	</array>
 	<key>S3_STORAGE_ACCESS_KEY</key>

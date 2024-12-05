@@ -11,6 +11,7 @@ public struct CartItem: Codable, Identifiable, Hashable {
     public let id: String?
     let name: String
     let price: Double
+    var imageKey: String
     let imageUrl: String
     let categoryID: String
     var quantity: Int
@@ -22,5 +23,6 @@ public struct CartItem: Codable, Identifiable, Hashable {
         self.imageUrl = item.imageUrl
         self.categoryID = item.categoryID
         self.quantity = quantity
+        self.imageKey = item.imageKey
     }
 }

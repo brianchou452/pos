@@ -16,6 +16,7 @@ struct User: Codable {
     let profileImageUrl: URL?
     let position: String
     let imageName: String
+    let phone: String?
 
     init() {
         self.userID = "fakeUserID"
@@ -24,6 +25,7 @@ struct User: Codable {
         self.profileImageUrl = nil
         self.position = "Boss"
         self.imageName = "person.circle"
+        self.phone = nil
     }
 
     init(id: String? = nil, userID: String, email: String, name: String, profileImageUrl: URL?, position: String, imageName: String) {
@@ -34,6 +36,7 @@ struct User: Codable {
         self.profileImageUrl = profileImageUrl
         self.position = position
         self.imageName = imageName
+        self.phone = nil
     }
 }
 
