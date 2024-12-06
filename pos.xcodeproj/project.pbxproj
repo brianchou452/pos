@@ -41,6 +41,7 @@
 		7280ADEF2CFDF4CD00E3FDF5 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7280ADEE2CFDF4C300E3FDF5 /* Order.swift */; };
 		7280ADF12CFDFADC00E3FDF5 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7280ADF02CFDFACD00E3FDF5 /* OrderViewModel.swift */; };
 		7280ADF32D01E89600E3FDF5 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7280ADF22D01E88600E3FDF5 /* OrderDetailView.swift */; };
+		7280ADF52D027C4700E3FDF5 /* UnderConstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7280ADF42D01F95800E3FDF5 /* UnderConstructionView.swift */; };
 		7280D9042B145FFF00C38D1E /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7280D9032B145FFF00C38D1E /* Drawer.swift */; };
 		7280D9052B145FFF00C38D1E /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7280D9032B145FFF00C38D1E /* Drawer.swift */; };
 		7280D9062B145FFF00C38D1E /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7280D9032B145FFF00C38D1E /* Drawer.swift */; };
@@ -148,6 +149,7 @@
 		7280ADEE2CFDF4C300E3FDF5 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		7280ADF02CFDFACD00E3FDF5 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		7280ADF22D01E88600E3FDF5 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
+		7280ADF42D01F95800E3FDF5 /* UnderConstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderConstructionView.swift; sourceTree = "<group>"; };
 		7280D9032B145FFF00C38D1E /* Drawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
 		7280D9072B14606B00C38D1E /* DrawerOpenedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerOpenedKey.swift; sourceTree = "<group>"; };
 		7280D90A2B14773000C38D1E /* UserHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHeader.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				72E652EC2B17A77400444498 /* Transactions */,
 				72D4CD902B7C654F00AF7CBB /* Settings */,
 				7280D9022B145FC600C38D1E /* Navagation */,
+				7280ADF42D01F95800E3FDF5 /* UnderConstructionView.swift */,
 				72366E9F2B10A5D50060F673 /* ContentView.swift */,
 			);
 			path = Views;
@@ -725,6 +728,7 @@
 				7280D91B2B14773000C38D1E /* MenuLabelStyle.swift in Sources */,
 				7280D9182B14773000C38D1E /* MenuAppearance.swift in Sources */,
 				728A49532BD7B12E00C47FF5 /* ItemsManageView.swift in Sources */,
+				7280ADF52D027C4700E3FDF5 /* UnderConstructionView.swift in Sources */,
 				7280D9342B14774D00C38D1E /* Dimension.swift in Sources */,
 				72D235782CD128E600D6F061 /* TransactionsListView.swift in Sources */,
 				7280D93E2B14778200C38D1E /* User.swift in Sources */,

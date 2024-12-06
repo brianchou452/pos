@@ -33,18 +33,18 @@ struct ContentView: View {
                     case .orders(let orderId):
                         OrderView(orderId: orderId, isNavagationBarOpened: $isOpened)
                     case .reports:
-                        CheckoutView(isNavagationBarOpened: $isOpened)
+                        UnderConstructionView(isNavagationBarOpened: $isOpened)
                     case .items:
                         ItemsManageView(isNavagationBarOpened: $isOpened)
                     case .customers:
-                        CheckoutView(isNavagationBarOpened: $isOpened)
+                        UnderConstructionView(isNavagationBarOpened: $isOpened)
                     case .settings:
-                        SettingsView(isOpened: $isOpened)
+                        SettingsView(isNavagationBarOpened: $isOpened)
                             .environmentObject(authService)
                     case .logout:
-                        CheckoutView(isNavagationBarOpened: $isOpened)
+                        UnderConstructionView(isNavagationBarOpened: $isOpened)
                     case nil:
-                        CheckoutView(isNavagationBarOpened: $isOpened)
+                        UnderConstructionView(isNavagationBarOpened: $isOpened)
                     }
                 }
             )
