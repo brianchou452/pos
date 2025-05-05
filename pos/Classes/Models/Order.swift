@@ -13,8 +13,8 @@ struct Order: Codable, Identifiable {
     let user: User
     let items: [CartItem]
     let total: Double
-    let status: String
-    let paymentMethod: String
+    let status: Status
+    let paymentMethod: PaymentMethod
     let createdAt: Date
     let updatedAt: Date
 
@@ -24,19 +24,19 @@ struct Order: Codable, Identifiable {
         self.total = total
         self.createdAt = Date()
         self.updatedAt = Date()
-        self.status = Status.pending.rawValue
-        self.paymentMethod = PaymentMethod.unPaid.rawValue
+        self.status = .pending
+        self.paymentMethod = .unPaid
     }
 }
 
 extension Order {
-    enum Status: String {
+    enum Status: String, Codable {
         case pending
         case preparing
         case completed
     }
 
-    enum PaymentMethod: String {
+    enum PaymentMethod: String, Codable {
         case cash
         case creditCard
         case unPaid

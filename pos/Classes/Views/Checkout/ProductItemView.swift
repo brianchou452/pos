@@ -29,7 +29,11 @@ struct ProductItemView: View {
 
             VStack(alignment: .leading) {
                 Spacer()
-                Text(text).background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8, style: .circular))
+                Text(text)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.leading)
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8, style: .circular))
+                    .frame(minWidth: .zero, maxWidth: 120, alignment: .center)
             }
             .padding(5)
         }

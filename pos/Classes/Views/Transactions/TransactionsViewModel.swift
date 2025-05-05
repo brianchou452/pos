@@ -44,7 +44,12 @@ class TransactionsViewModel: ObservableObject {
 
             do {
                 let newTransactions = try snapshot.documents.compactMap { try $0.data(as: Transaction.self) }
-                self.transactions.append(contentsOf: newTransactions)
+                for transaction in newTransactions {
+                    let filterNewTransactionsResult = self.transactions.filter { $0.id == transaction.id }
+                    if filterNewTransactionsResult.isEmpty && transaction.id != nil {
+                        self.transactions.append(transaction)
+                    }
+                }
                 self.listLoadingState = .success(count: transactions.count)
                 self.isEndOfList = false
             } catch {

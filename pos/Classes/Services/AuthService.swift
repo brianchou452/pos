@@ -16,7 +16,7 @@ class AuthService: ObservableObject {
     @Published var user: User = .init()
     
     init() {
-//        Auth.auth().useEmulator(withHost: "192.168.1.163", port: 9099)
+//        Auth.auth().useEmulator(withHost: "192.168.1.192", port: 9099)
         Auth.auth().addStateDidChangeListener { _, user in
             if user != nil {
                 self.status = .login

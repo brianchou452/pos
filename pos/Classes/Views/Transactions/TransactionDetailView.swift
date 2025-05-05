@@ -22,12 +22,14 @@ struct TransactionDetailView: View {
                 .font(.subheadline)
                 .foregroundColor(Color("color/text"))
 
-            VStack {
-                ForEach(transaction.items) { item in
-                    TransactionItemView(item: item)
+            ScrollView {
+                VStack {
+                    ForEach(transaction.items) { item in
+                        TransactionItemView(item: item)
+                    }
                 }
+                .padding()
             }
-            .padding()
 
             Spacer()
             Divider()

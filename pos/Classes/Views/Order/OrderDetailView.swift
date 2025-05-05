@@ -15,19 +15,27 @@ struct OrderDetailView: View {
             Text(order.createdAt.formatted(date: .numeric, time: .shortened))
                 .font(.title)
                 .foregroundColor(Color("color/primary"))
-            Text("User: \(order.user.name)")
+            Text("訂購人: \(order.user.name)")
+                .font(.subheadline)
+                .foregroundColor(Color("color/text"))
+            Text("訂購人 Email: \(order.user.email)")
+                .font(.subheadline)
+                .foregroundColor(Color("color/text"))
+            Text("訂購人電話: \(order.user.phone ?? "")")
                 .font(.subheadline)
                 .foregroundColor(Color("color/text"))
             Text("ID: \(order.id ?? "")")
                 .font(.subheadline)
                 .foregroundColor(Color("color/text"))
 
-            VStack {
-                ForEach(order.items, id: \.imageKey) { item in // TODO: Use id instead of imageKey
-                    TransactionItemView(item: item)
+            ScrollView {
+                VStack {
+                    ForEach(order.items, id: \.imageKey) { item in // TODO: Use id instead of imageKey
+                        TransactionItemView(item: item)
+                    }
                 }
+                .padding()
             }
-            .padding()
 
             Spacer()
             Divider()

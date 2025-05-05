@@ -44,7 +44,12 @@ class OrderViewModel: ObservableObject {
             
             do {
                 let newOrders = try snapshot.documents.compactMap { try $0.data(as: Order.self) }
-                self.orders.append(contentsOf: newOrders)
+                for order in newOrders {
+                    let filterNewOrderResult = self.orders.filter { $0.id == order.id }
+                    if filterNewOrderResult.isEmpty && order.id != nil {
+                        self.orders.append(order)
+                    }
+                }
                 self.listLoadingState = .success(count: orders.count)
                 self.isEndOfList = false
             } catch {

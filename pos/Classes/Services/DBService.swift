@@ -17,12 +17,12 @@ class DBService: ObservableObject {
 
     init() {
         #if DEBUG
-        let settings = Firestore.firestore().settings
-        settings.host = "192.168.1.102:8081"
-        settings.cacheSettings = MemoryCacheSettings()
-        settings.isSSLEnabled = false
-        Firestore.firestore().settings = settings
-        UserDefaults.storeID = "5wQJz1ELjMqVZwzEqgpx"
+//        let settings = Firestore.firestore().settings
+//        settings.host = "192.168.1.192:8081"
+//        settings.cacheSettings = MemoryCacheSettings()
+//        settings.isSSLEnabled = false
+//        Firestore.firestore().settings = settings
+        UserDefaults.storeID = "6LF5tEtVTzzNm3J2rTrR"
         #endif
         try? getOrders()
     }
